@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Restaurant information table</title>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.js"></script>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript" src="http://mgskjaeveland.github.io/sgvizler/v/0.6/sgvizler.js"></script>
+    <script type="text/javascript">
+      sgvizler.prefix('rdf', 'http://www.w3.org/1999/02/22-rdf-syntax-ns#');
+      sgvizler.prefix('rdfs', 'http://www.w3.org/2000/01/rdf-schema#');
+      sgvizler.prefix('property', 'http://linkdata.org/property/rdf1s9418i#');
+      sgvizler.prefix('element', 'http://purl.org/dc/elements/1.1/');
+      sgvizler.prefix('obo', 'http://purl.obolibrary.org/obo/');
+      sgvizler.prefix('xmlns', 'http://xmlns.com/foaf/0.1/');
+
+      $(document).ready(function() { sgvizler.containerDrawAll(); });
+  </script>
+  </head>
+  <body>
+    <h1>Restaurants Info</h1>
+    <h4>Table of main menu and homepage of restaurants</h4>
+    <div id="sgvzl_example_table1"
+        data-sgvizler-endpoint="https://fuseki.open.coins.tsukuba.ac.jp/lod/"
+         data-sgvizler-query="select ?Name_JP ?Name_Eng ?Main_Menu ?Homepage
+         where {
+            ?label property:name_jp ?Name_JP.
+            ?label rdfs:label ?Name_Eng.
+             ?label property:detail ?Main_Menu.
+             ?label xmlns:homepage ?Homepage
+        }"
+             data-sgvizler-chart="google.visualization.Table"
+             data-sgvizler-loglevel="2" 
+         style="width:1000; height:700px;"></div>
+
+         <br/>
+          </body>
+        </html>

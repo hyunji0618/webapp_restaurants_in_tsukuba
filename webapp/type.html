@@ -1,0 +1,148 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Restaurant type</title>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.js"></script>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript" src="http://mgskjaeveland.github.io/sgvizler/v/0.6/sgvizler.js"></script>
+    <script type="text/javascript">
+      sgvizler.prefix('rdf', 'http://www.w3.org/1999/02/22-rdf-syntax-ns#');
+      sgvizler.prefix('rdfs', 'http://www.w3.org/2000/01/rdf-schema#');
+      sgvizler.prefix('property', 'http://linkdata.org/property/rdf1s9418i#');
+      sgvizler.prefix('element', 'http://purl.org/dc/elements/1.1/');
+      sgvizler.prefix('obo', 'http://purl.obolibrary.org/obo/');
+      sgvizler.prefix('xmlns', 'http://xmlns.com/foaf/0.1/');
+
+      $(document).ready(function() { sgvizler.containerDrawAll(); });
+  </script>
+  </head>
+  <body>
+    <h1>メニューから探す (Search restaurants by menu)</h1>
+    <h4>メニューを選んでください</h4>
+    <a href="#tag1">洋食</a><br><br>
+    <a href="#tag2">和食</a><br><br>
+    <a href="#tag3">居酒屋</a><br><br>
+    <a href="#tag4">ラーメン</a><br><br>
+    <a href="#tag5">牛丼</a><br><br>
+    <a href="#tag6">韓国料理</a><br><br>
+    <a href="#tag7">その他</a><br><br>
+    <a name="tag1"></a>
+    <h2>洋食</h2>
+    <div id="sgvzl_example_table1"
+        data-sgvizler-endpoint="https://fuseki.open.coins.tsukuba.ac.jp/lod/"
+         data-sgvizler-query="select ?Name_JP ?Main_Menu 
+         where {
+             ?label element:description ?menu.
+             ?label property:name_jp ?Name_JP.
+             ?label property:detail ?Main_Menu.
+             filter (regex(str(?menu), '洋食'))
+        }"
+             data-sgvizler-chart="sgvizler.visualization.DefList"
+             data-sgvizler-loglevel="2"></div>
+         <br/>
+         <a name="tag2"></a>
+         <h2>和食</h2>
+         <div id="sgvzl_example_table２"
+             data-sgvizler-endpoint="https://fuseki.open.coins.tsukuba.ac.jp/lod/"
+              data-sgvizler-query="select ?Name_JP ?Main_Menu 
+              where {
+                  ?label element:description ?menu.
+                  ?label property:name_jp ?Name_JP.
+                  ?label property:detail ?Main_Menu.
+                  filter (regex(str(?menu), '和食'))
+             }"
+                  data-sgvizler-chart="sgvizler.visualization.DefList"
+                  data-sgvizler-loglevel="2"></div>
+              <br/>
+              <a name="tag3"></a>
+              <h2>居酒屋</h2>
+              <div id="sgvzl_example_table3"
+                  data-sgvizler-endpoint="https://fuseki.open.coins.tsukuba.ac.jp/lod/"
+                   data-sgvizler-query="select ?Name_JP ?Main_Menu 
+                   where {
+                       ?label element:description ?menu.
+                       ?label property:name_jp ?Name_JP.
+                       ?label property:detail ?Main_Menu.
+                       filter (regex(str(?menu), '居酒屋'))
+                  }"
+                       data-sgvizler-chart="sgvizler.visualization.DefList"
+                       data-sgvizler-loglevel="2"></div>
+                <br/>
+                <a name="tag4"></a>
+              <h2>ラーメン</h2>
+              <div id="sgvzl_example_table4"
+                  data-sgvizler-endpoint="https://fuseki.open.coins.tsukuba.ac.jp/lod/"
+                   data-sgvizler-query="select ?Name_JP ?Main_Menu 
+                   where {
+                       ?label element:description ?menu.
+                       ?label property:name_jp ?Name_JP.
+                       ?label property:detail ?Main_Menu.
+                       filter (regex(str(?menu), 'ラーメン'))
+                  }"
+                       data-sgvizler-chart="sgvizler.visualization.DefList"
+                       data-sgvizler-loglevel="2"></div>
+                <br/>
+                <a name="tag5"></a>
+              <h2>牛丼</h2>
+              <div id="sgvzl_example_table5"
+                  data-sgvizler-endpoint="https://fuseki.open.coins.tsukuba.ac.jp/lod/"
+                   data-sgvizler-query="select ?Name_JP ?Main_Menu 
+                   where {
+                       ?label element:description ?menu.
+                       ?label property:name_jp ?Name_JP.
+                       ?label property:detail ?Main_Menu.
+                       filter (regex(str(?menu), '牛丼屋'))
+                  }"
+                       data-sgvizler-chart="sgvizler.visualization.DefList"
+                       data-sgvizler-loglevel="2"></div>
+                <br/>
+                <a name="tag6"></a>
+              <h2>韓国料理</h2>
+              <div id="sgvzl_example_table6"
+                  data-sgvizler-endpoint="https://fuseki.open.coins.tsukuba.ac.jp/lod/"
+                   data-sgvizler-query="select ?Name_JP ?Main_Menu 
+                   where {
+                       ?label element:description ?menu.
+                       ?label property:name_jp ?Name_JP.
+                       ?label property:detail ?Main_Menu.
+                       filter (regex(str(?menu), '韓国料理'))
+                  }"
+                       data-sgvizler-chart="sgvizler.visualization.DefList"
+                       data-sgvizler-loglevel="2"></div>
+                <br/>
+                <a name="tag7"></a>
+              <h2>その他</h2>
+              <div id="sgvzl_example_table7"
+                  data-sgvizler-endpoint="https://fuseki.open.coins.tsukuba.ac.jp/lod/"
+                   data-sgvizler-query="select ?Name_JP ?menu ?Main_Menu 
+                   where {
+                       ?label element:description ?menu.
+                       ?label property:name_jp ?Name_JP.
+                       ?label property:detail ?Main_Menu.
+                       FILTER NOT EXISTS { 
+                        ?label element:description ?menu
+                        FILTER(regex(str(?menu),'洋食'))}
+                        FILTER NOT EXISTS { 
+                            ?label element:description ?menu
+                            FILTER(regex(str(?menu),'和食'))}
+                        FILTER NOT EXISTS { 
+                            ?label element:description ?menu
+                            FILTER(regex(str(?menu),'ラーメン'))}
+                        FILTER NOT EXISTS { 
+                            ?label element:description ?menu
+                            FILTER(regex(str(?menu),'牛丼屋'))}
+                            FILTER NOT EXISTS { 
+                                ?label element:description ?menu
+                                FILTER(regex(str(?menu),'居酒屋'))}
+                                FILTER NOT EXISTS { 
+                                    ?label element:description ?menu
+                                    FILTER(regex(str(?menu),'韓国料理'))}
+                  }"
+                       data-sgvizler-chart="sgvizler.visualization.DefList"
+                       data-sgvizler-loglevel="2"></div>
+                <br/>
+
+          </body>
+        </html>

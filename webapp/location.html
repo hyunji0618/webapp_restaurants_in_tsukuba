@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Restaurant location table</title>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.js"></script>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript" src="http://mgskjaeveland.github.io/sgvizler/v/0.6/sgvizler.js"></script>
+    <script type="text/javascript">
+      sgvizler.prefix('rdf', 'http://www.w3.org/1999/02/22-rdf-syntax-ns#');
+      sgvizler.prefix('rdfs', 'http://www.w3.org/2000/01/rdf-schema#');
+      sgvizler.prefix('property', 'http://linkdata.org/property/rdf1s9418i#');
+      sgvizler.prefix('element', 'http://purl.org/dc/elements/1.1/');
+      sgvizler.prefix('obo', 'http://purl.obolibrary.org/obo/');
+
+      $(document).ready(function() { sgvizler.containerDrawAll(); });
+  </script>
+  </head>
+  <body>
+    <h1>Address & phone number of restaurants</h1>
+    <h4>Address and phone number of restaurants near Tsukuba University</h4>
+    <div id="sgvzl_example_table1"
+        data-sgvizler-endpoint="https://fuseki.open.coins.tsukuba.ac.jp/lod/"
+         data-sgvizler-query="select ?Name ?Address ?Phone
+         where {
+             ?label obo:located_in ?Address.
+             ?label property:name_jp ?Name.
+             ?label property:phone_number ?Phone
+        }"
+             data-sgvizler-chart="google.visualization.Table"
+             data-sgvizler-loglevel="2" 
+         style="width:900px; height:700px;"></div>
+
+         <br/>
+          </body>
+        </html>
